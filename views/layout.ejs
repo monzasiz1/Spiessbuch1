@@ -9,6 +9,7 @@
   <script src="/script.js" defer></script>
 </head>
 <body>
-  <%- body %>
+ <%- typeof body !== 'undefined' ? body : '' %>
+
 </body>
 </html>

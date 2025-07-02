@@ -1,6 +1,7 @@
 const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
-app.set('layout', 'layout'); // das ist deine views/layout.ejs
+app.set('layout', 'layout'); // layout.ejs wird automatisch verwendet
+
 
 
 require("dotenv").config();
