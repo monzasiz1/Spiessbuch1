@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrierung</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <img src="/logo.png" alt="Logo" class="logo">
+    <h1>Registrierung</h1>
+  </header>
+
+  <div class="container">
+    <form action="/register" method="POST">
+      <input type="text" name="username" placeholder="Benutzername" required>
+      <input type="password" name="password" placeholder="Passwort" required>
+      <select name="role" required>
+        <option value="mitglied">Mitglied</option>
+        <option value="admin">Spieß</option>
+      </select>
+      <button type="submit" class="btn">Registrieren</button>
+    </form>
+    <p>Bereits registriert? <a href="/login" class="btn btn-secondary">Zum Login</a></p>
+  </div>
+</body>
+</html>

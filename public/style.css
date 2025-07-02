@@ -1,0 +1,186 @@
+:root {
+  --bg: #e7eae7;
+  --accent: #02501c; /* RAL 6013 – Schilfgrün */
+  --text: #111;
+  --light: #ffffff;
+  --card: #dfe3dc;
+  --border: #aaa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  max-width: 60px;
+  width: 100%;
+  height: auto;
+  margin-right: 1rem;
+}
+
+h1, h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.container {
+  background-color: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+input, select {
+  padding: 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--light);
+  color: var(--text);
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+input:focus, select:focus {
+  outline: 2px solid var(--accent);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: var(--light);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background-color: var(--accent);
+  color: white;
+  text-align: left;
+}
+
+td {
+  color: var(--text);
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--accent);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0.3rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #3c4d1e;
+}
+
+.btn-secondary {
+  background-color: #666;
+}
+
+.btn-secondary:hover {
+  background-color: #555;
+}
+
+.btn-admin {
+  background-color: #003366;
+}
+
+.btn-admin:hover {
+  background-color: #002244;
+}
+
+/* Responsive Design für mobile Endgeräte */
+@media (max-width: 600px) {
+  .logo {
+    max-width: 40px;
+    margin-right: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  table tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.5rem;
+    background: #fff;
+  }
+
+  table th {
+    display: none;
+  }
+
+  table td {
+    text-align: left;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--accent);
+  }
+}
