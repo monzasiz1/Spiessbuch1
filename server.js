@@ -1,26 +1,28 @@
-const expressLayouts = require('express-ejs-layouts');
-app.use(expressLayouts);
-app.set('layout', 'layout'); // layout.ejs wird automatisch verwendet
-
-
-
 require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const db = require("./db");
+const expressLayouts = require("express-ejs-layouts");
 
 const app = express();
+
+// Middleware & Layouts
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
 app.use(session({
     secret: "spiessbuch-secret",
     resave: false,
     saveUninitialized: false
 }));
+
+// EJS + Layout
+app.set("view engine", "ejs");
+app.use(expressLayouts);
+app.set("layout", "layout");
+app.set("views", path.join(__dirname, "views"));
+
 
 const ensureAuthenticated = (req, res, next) => {
     if (req.session.user) return next();
