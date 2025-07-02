@@ -1,0 +1,9 @@
+<h1>Strafen</h1>
+<table>
+  <thead><tr><th>ID</th><th>Benutzer</th><th>Betrag</th><th>Veranstaltung</th><th>Grund</th><th>Erfasst</th></tr></thead>
+  <tbody>
+    <% penalties.forEach(p => { %>
+      <tr><td><%= p.id %></td><td><%= p.username %></td><td><%= p.amount %> €</td><td><%= p.event %></td><td><%= p.reason %></td><td><%= new Date(p.created_at).toLocaleString() %></td></tr>
+    <% }) %>
+  </tbody>
+</table>

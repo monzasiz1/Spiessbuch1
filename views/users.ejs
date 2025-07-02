@@ -1,0 +1,9 @@
+<h1>Benutzerverwaltung</h1>
+<table>
+  <thead><tr><th>ID</th><th>Benutzername</th><th>Rolle</th></tr></thead>
+  <tbody>
+    <% users.forEach(u => { %>
+      <tr><td><%= u.id %></td><td><%= u.username %></td><td><%= u.role %></td></tr>
+    <% }) %>
+  </tbody>
+</table>

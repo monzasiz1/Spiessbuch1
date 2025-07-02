@@ -1,15 +1,12 @@
 {
-  "name": "Spießbuch",
   "short_name": "Spießbuch",
+  "name": "Spießbuch Vereins-App",
+  "icons": [
+    { "src": "/logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png" }
+  ],
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3e4e3e",
-  "icons": [
-    {
-      "src": "/bilder/logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "theme_color": "#4f7942",
+  "background_color": "#ffffff"
 }

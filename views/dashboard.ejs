@@ -1,3 +1,11 @@
-<%- include("layout") %>
-<h2>Willkommen, <%= user.username %></h2>
-<p>Deine Rolle: <%= user.role %></p>
+<h1>Willkommen, <%= user.username %>!</h1>
+<p>Role: <%= user.role %></p>
+<ul>
+  <li><a href="/penalties">Strafen ansehen</a></li>
+  <% if (user.role === 'admin') { %>
+    <li><a href="/users">Benutzer verwalten</a></li>
+    <li><a href="/penalties/new">Strafe eintragen</a></li>
+    <li><a href="/register">Benutzer anlegen</a></li>
+  <% } %>
+  <li><a href="/logout">Abmelden</a></li>
+</ul>

@@ -2,14 +2,27 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Spießbuch</title>
+  <link rel="stylesheet" href="/styles.css">
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#3e4e3e" />
-  <script src="/script.js" defer></script>
 </head>
 <body>
- <%- typeof body !== 'undefined' ? body : '' %>
-
+  <header>
+    <a href="/"><img src="/logo.png" alt="Logo" height="50"></a>
+    <nav>
+      <a href="/dashboard">Dashboard</a>
+      <% if (user && user.role === 'admin') { %>
+        <a href="/users">Benutzer</a>
+        <a href="/penalties/new">Strafe eintragen</a>
+      <% } %>
+      <a href="/penalties">Strafen</a>
+      <% if (user) { %><a href="/logout">Abmelden</a><% } else { %>
+        <a href="/login">Login</a>
+      <% } %>
+    </nav>
+  </header>
+  <main><%- body %></main>
+  <script src="/register-sw.js"></script>
 </body>
 </html>

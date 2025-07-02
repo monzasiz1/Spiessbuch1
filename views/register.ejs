@@ -1,11 +1,13 @@
-<%- include("layout") %>
-<h2>Mitglied registrieren</h2>
+<h1>Neuen Benutzer anlegen</h1>
 <form method="POST" action="/register">
-  <input name="username" placeholder="Benutzername" required>
-  <input name="password" type="password" placeholder="Passwort" required>
+  <label>Benutzername:</label>
+  <input name="username" required>
+  <label>Passwort:</label>
+  <input type="password" name="password" required>
+  <label>Rolle:</label>
   <select name="role">
-    <option value="mitglied">Mitglied</option>
+    <option value="member">Mitglied</option>
     <option value="admin">Admin</option>
   </select>
-  <button type="submit">Registrieren</button>
+  <button type="submit">Anlegen</button>
 </form>
