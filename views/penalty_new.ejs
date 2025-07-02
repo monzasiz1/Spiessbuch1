@@ -1,0 +1,16 @@
+<h1>Neue Strafe eintragen</h1>
+<form method="POST" action="/penalties/new">
+  <label>Nutzer:</label>
+  <select name="user_id">
+    <% users.forEach(u => { %>
+      <option value="<%= u.id %>"><%= u.username %></option>
+    <% }) %>
+  </select>
+  <label>Betrag (€):</label>
+  <input type="number" name="amount" step="0.01" required>
+  <label>Veranstaltung:</label>
+  <input name="event" required>
+  <label>Grund:</label>
+  <textarea name="reason" required></textarea>
+  <button type="submit">Speichern</button>
+</form>

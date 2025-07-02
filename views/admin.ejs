@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Adminbereich – <%= user.username %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <header>
+    <img src="/logo.png" alt="Logo" class="logo">
+    <h1>Adminbereich – <%= user.username %></h1>
+  </header>
+
+  <div class="container">
+    <h2>➕ Strafe eintragen</h2>
+    <form action="/admin/add" method="POST">
+      <label for="user_id">👤 Mitglied</label>
+      <select name="user_id" required>
+        <% mitglieder.forEach(m => { %>
+          <option value="<%= m.id %>"><%= m.username %></option>
+        <% }) %>
+      </select>
+
+      <label for="datum">📅 Datum</label>
+      <input name="datum" type="date" required>
+
+      <label for="veranstaltung">🎪 Veranstaltung</label>
+      <input name="veranstaltung" placeholder="z.B. Schützenfest" required>
+
+      <label for="grund">📝 Grund</label>
+      <input name="grund" placeholder="z. B. Zuspätkommen" required>
+
+      <label for="punkte">💰 Kosten (€)</label>
+      <input name="punkte" type="number" step="0.01" required>
+
+      <button class="btn">➕ Hinzufügen</button>
+    </form>
+
+    <h2>📋 Alle Strafen</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Mitglied</th>
+          <th>Veranstaltung</th>
+          <th>Grund</th>
+          <th>Kosten (€)</th>
+          <th>Datum</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% strafen.forEach(s => { %>
+          <tr>
+            <td data-label="Mitglied"><%= s.username %></td>
+            <td data-label="Veranstaltung"><%= s.veranstaltung %></td>
+            <td data-label="Grund"><%= s.grund %></td>
+            <td data-label="Kosten"><%= parseFloat(s.punkte).toFixed(2) %> €</td>
+            <td data-label="Datum"><%= s.datum %></td>
+            <td data-label="Aktionen">
+              <a href="/admin/edit/<%= s.id %>" class="btn btn-secondary">✏️</a>
+              <form action="/admin/delete/<%= s.id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-secondary" onclick="return confirm('Wirklich löschen?')">🗑️</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <div class="actions">
+      <a href="/dashboard" class="btn btn-secondary">⬅️ Zurück</a>
+      <a href="/admin/export" class="btn">📄 Export als PDF</a>
+      <a href="/logout" class="btn btn-secondary">🚪 Logout</a>
+    </div>
+  </div>
+
+</body>
+</html>
