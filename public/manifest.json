@@ -1,18 +1,13 @@
 {
-  "name": "Spießstrafen App",
-  "short_name": "SpießApp",
+  "name": "Spießbuch",
+  "short_name": "Spießbuch",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#8A9A5B",
-  "theme_color": "#8A9A5B",
+  "background_color": "#ffffff",
+  "theme_color": "#3e4e3e",
   "icons": [
     {
-      "src": "/logo.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/logo.png",
+      "src": "/bilder/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
